@@ -1,0 +1,1008 @@
+PART-01:
+06/06/2023
+Numeric functions
+These functions are used to manipulate number data or numeric data.
+1)ABS
+This functions provides an absolute value.
+
+2)Power
+this function provides m to the power of nth value(m^n).
+
+3)Mod(modulus)
+it provides remainder of division.
+
+4)Round
+this function rounds the decimal positions based on the number of decimal positions provided.
+
+5)trunc
+this function truncates the decimal positions.
+
+6)Greatest
+this function provides highest value from the least.
+
+7)Least
+this function provides lowest value from the least.
+
+8)SQRT
+this function provides square root of the given number.
+
+9)FLOOR
+this function provides only the current integer value.
+
+10)ceil
+this function provides the next integer value.
+
+
+
+DATE FUNCTIONS
+this functions are used to manipulate date values.
+1)Sysdate
+this function provides current system date in the format of DD-MM-YY.
+
+Note:1) Can we add any integer value into a sysdate function
+ans: yes.
+2) Can we substract integer value from sysdate function.
+ans:Yes.
+
+1)Add_months
+this functions adds number of months into the given date.
+
+2)Last_day
+this function provides last day from the specified date.
+
+3)next_day
+this function provides upcoming date based on the weekday name provided.
+
+Conversion Functions
+1)to_date
+this function converts the character representation of date into a standard oracle date format.
+Note:
+The standard oracle format is DD-MON-YY.
+
+2)to_char
+this function converts date into a character representation.
+select to_char(sysdate-23,'dd.mm.yyyy') from dual;
+
+TO_CHAR(SY
+----------
+14.05.2023
+
+case2: select to_char(to_date('15-aug-2023'),'dd.mon.yyyy') from dual;
+
+
+TO_CHAR(TO_
+-----------
+15.aug.2023
+
+3)to_number
+this function converts string representation of numeric value into a the standard number of numeric value.
+
+
+Data types in SQL;
+oracle supports the following types of data types:
+1)char(size):
+this data type is used to store alpha numeric data,the data available in tht column is right padded with spaces based on the size specified.
+
+2)varchar2(size):
+this data type is used to store variable length of data,this datatype is allowing to store alpha numeric characters,at any point the data never right padded
+with spaces.
+
+3)number(size):
+this data type is used to store numeric value.
+
+Note:
+decimal positions:
+number(size,decimal positions);
+number(5,2);
+
+4)Date;
+this data type is used to store the date value the standard oracle date format is DD-MON-YY;
+
+5)long;
+this data type is used to store alpha numeric data upto 2GB.
+
+6)Raw_Long
+this data type is used to store digitised images and pictures.
+
+
+SQL STATEMENTS;
+
+1)DDL:DATA DEFINITION LANGUAGE=CREATE,ALTER,RENAME,TRUNCATE,DROP;
+
+2)DML:DATA MANIPULATION LANGUAGE=INSERT,UPDATE,DELETE;
+
+3)TCL:TRANSCTION CONTROL LANGUAGE=COMMIT,ROLLBACK,SAVEPOINT;
+
+DIFFERENCE B/W DDL AND DML STATEMENTS
+DDL                                                        DML
+1)DDL stands for data definition language.                1)DML Stands for Data Manipulation Language.
+2)It includes CREATE,ALTER,RENAME,TRUNCATE,DROP           2)All DML includes INSERT,UPDATE,DELETE
+3)All DDL Statements are auto-commit,it means             3)All DML Statements are not auto-commit in order to save the tranaction we should use TCL statements commit
+ it saves the transaction permanently.
+4)DDL Statements deals with manipulating(controll)        4)All DML statements deals with manipulating data within the table.
+structure of the table.
+
+DDL STATEMENTS:
+1)CREATE:
+By using Create Statement we can create the structure of the table.
+
+RULES FOR PROVIDING THE TABLE NAME;
+1)The name of table should not contains space.
+2)The name of table never start with integer.
+3)we shouldnot use any In-built keyword as a table name.
+
+Example 1):
+SQL> create table product(pid number(2),prodname varchar2(10),
+  2  price number(5,2),location varchar2(10), Manuf date);
+
+Table created.
+
+Note: How to view the structure of table OR How to describe the table
+SQL> desc product;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ PID                                                NUMBER(2)
+ PRODNAME                                           VARCHAR2(10)
+ PRICE                                              NUMBER(5,2)
+ LOCATION                                           VARCHAR2(10)
+ MANUF                                              DATE
+
+
+DML STATEMENTS:
+1)INSERT:
+By using Insert Statements we can insert records into an exisiting table.
+
+ Case1:Insert Record based on the sequence of columns:
+SQL> insert into product values(10,'haier',560.25,'Bangalore',
+  2  sysdate-25);
+
+1 row created
+
+1)How to view Available Record into a table;
+SQL>select * from product;
+
+       PID PRODNAME        PRICE LOCATION   MANUF
+---------- ---------- ---------- ---------- ---------
+        10 haier          560.25 Bangalore  12-MAY-23
+
+ Case 2:Insert records based on the mapping of columns and values.
+ 
+SQL> insert into product(prodname,price,pid,location,manuf)
+  2  values('lenevo',650.75,11,'mangalore',sysdate-100);
+
+1 row created.
+
+SQL> select * from product;
+
+       PID PRODNAME        PRICE LOCATION   MANUF
+---------- ---------- ---------- ---------- ---------
+        10 haier          560.25 Bangalore  12-MAY-23
+        11 lenevo         650.75 mangalore  26-FEB-23 
+
+  Case3:insert record into a table by substituting variable value.
+
+SQL> insert into product values(&pid,&prodname,&Amount,&Location,&m_date);
+Enter value for pid: 12
+Enter value for prodname: 'Dell'
+Enter value for amount: 350.99
+Enter value for location: 'Vijaynagar'
+Enter value for m_date: sysdate-75
+old   1: insert into product values(&pid,&prodname,&Amount,&Location,&m_date)
+new   1: insert into product values(12,'Dell',350.99,'Vijaynagar',sysdate-75)
+
+1 row created.
+
+
+SQL> insert into product values(&pid,&prodname,&Amount,&Location,&m_date);
+Enter value for pid: 12
+Enter value for prodname: 'Dell'
+Enter value for amount: 350.99
+Enter value for location: 'Vijaynagar'
+Enter value for m_date: sysdate-75
+old   1: insert into product values(&pid,&prodname,&Amount,&Location,&m_date)
+new   1: insert into product values(12,'Dell',350.99,'Vijaynagar',sysdate-75)
+
+1 row created.
+
+SQL> /
+Enter value for pid: 13
+Enter value for prodname: 'samsung'
+Enter value for amount: 125.25
+Enter value for location: 'Bellary'
+Enter value for m_date: sysdate-10
+old   1: insert into product values(&pid,&prodname,&Amount,&Location,&m_date)
+new   1: insert into product values(13,'samsung',125.25,'Bellary',sysdate-10)
+
+1 row created.
+
+SQL> /
+Enter value for pid: 14
+Enter value for prodname: 'acer'
+Enter value for amount: 910.75
+Enter value for location: 'Raichur'
+Enter value for m_date: sysdate-200
+old   1: insert into product values(&pid,&prodname,&Amount,&Location,&m_date)
+new   1: insert into product values(14,'acer',910.75,'Raichur',sysdate-200)
+
+1 row created.
+
+SQL> select * from product;
+
+       PID PRODNAME        PRICE LOCATION   MANUF
+---------- ---------- ---------- ---------- ---------
+        10 haier          560.25 Bangalore  12-MAY-23
+        11 lenevo         650.75 mangalore  26-FEB-23
+        12 Dell           350.99 Vijaynagar 23-MAR-23
+        13 samsung        125.25 Bellary    27-MAY-23
+        14 acer           910.75 Raichur    18-NOV-22
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+07/06/2023
+
+DDL STATEMENTS
+3)Alter:
+By using Alter table we can alter the structure of the table.
+ 
+Case1:Alter the size of datatype:
+we can alter the size of data type
+
+SQL> Alter table product modify location varchar2(15);
+
+Table altered.
+
+SQL> desc product;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ PID                                                NUMBER(2)
+ PRODNAME                                           VARCHAR2(10)
+ PRICE                                              NUMBER(5,2)
+ LOCATION                                           VARCHAR2(15)
+ MANUF                                              DATE
+
+Case2:Alter the datatype of the column:
+
+Note:1)If a column is blank we can modify from any datatype to any other datatype.
+If a column already contains data we can't able to modify to other datatype
+2)Char to varchar OR varchar to char datatype we can modify
+
+
+SQL> Alter table product modify Location char(10);
+
+Table altered.
+
+SQL> desc product;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ PID                                                NUMBER(2)
+ PRODNAME                                           VARCHAR2(10)
+ PRICE                                              NUMBER(5,2)
+ LOCATION                                           CHAR(10)
+ MANUF                                              DATE
+
+Case3:How to add a new column?
+
+SQL> alter table product add phone number(10);
+
+Table altered.
+
+SQL> select * from product;
+
+       PID PRODNAME        PRICE LOCATION   MANUF          PHONE
+---------- ---------- ---------- ---------- --------- ----------
+        10 haier          560.25 Bangalore  12-MAY-23
+        11 lenevo         650.75 mangalore  26-FEB-23
+        12 Dell           350.99 Vijaynagar 23-MAR-23
+        13 samsung        125.25 Bellary    27-MAY-23
+        14 acer           910.75 Raichur    18-NOV-23
+
+
+Case4:How to rename the column name?
+SQL> alter table product rename column phone to mobileno;
+
+Table altered.
+
+SQL> select * from product;
+
+       PID PRODNAME        PRICE LOCATION   MANUF       MOBILENO
+---------- ---------- ---------- ---------- --------- ----------
+        10 haier          560.25 Bangalore  12-MAY-23
+        11 lenevo         650.75 mangalore  26-FEB-23
+        12 Dell           350.99 Vijaynagar 23-MAR-23
+        13 samsung        125.25 Bellary    27-MAY-23
+        14 acer           910.75 Raichur    18-NOV-22
+
+CASE 5: How to drop the exisisting column?
+
+SQL> alter table product drop column mobileno;
+
+Table altered.
+
+SQL> select * from product;
+
+       PID PRODNAME        PRICE LOCATION   MANUF
+---------- ---------- ---------- ---------- ---------
+        10 haier          560.25 Bangalore  12-MAY-23
+        11 lenevo         650.75 mangalore  26-FEB-23
+        12 Dell           350.99 Vijaynagar 23-MAR-23
+        13 samsung        125.25 Bellary    27-MAY-23
+        14 acer           910.75 Raichur    18-NOV-22
+
+3)RENAME:
+By using Rename statement we can rename the exisisting table.
+
+Note: How to create new Table By Reffering Exisisting table Structure and Data?
+
+SQL> create table product1 as select * from product;
+
+Table created.
+
+SQL> select * from product1;
+
+       PID PRODNAME        PRICE LOCATION   MANUF
+---------- ---------- ---------- ---------- ---------
+        10 haier          560.25 Bangalore  12-MAY-23
+        11 lenevo         650.75 mangalore  26-FEB-23
+        12 Dell           350.99 Vijaynagar 23-MAR-23
+        13 samsung        125.25 Bellary    27-MAY-23
+        14 acer           910.75 Raichur    18-NOV-22
+
+SQL> rename product1 to productnew;
+
+Table renamed.
+
+SQL> select * from productnew;
+
+       PID PRODNAME        PRICE LOCATION   MANUF
+---------- ---------- ---------- ---------- ---------
+        10 haier          560.25 Bangalore  12-MAY-23
+        11 lenevo         650.75 mangalore  26-FEB-23
+        12 Dell           350.99 Vijaynagar 23-MAR-23
+        13 samsung        125.25 Bellary    27-MAY-23
+        14 acer           910.75 Raichur    18-NOV-22
+
+
+4)TRUNCATE:
+The truncate statements removes all the records from the table permanently without affecting the structure of the table.
+
+SQL> truncate table productnew;
+
+Table truncated.
+
+SQL> select * from productnew;
+
+no rows selected
+
+SQL> desc productnew;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ PID                                                NUMBER(2)
+ PRODNAME                                           VARCHAR2(10)
+ PRICE                                              NUMBER(5,2)
+ LOCATION                                           CHAR(10)
+ MANUF                                              DATE
+
+5)DROP STATMENTS:
+Drop statements removes all the records from the table along with whole structure of the table permanently from database.
+
+SQL> Drop table productnew;
+
+Table dropped.
+
+SQL> select * from productnew;
+select * from productnew
+              *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> desc productnew;
+ERROR:
+ORA-04043: object productnew does not exist
+
+
+
+DIFFERENCE B/W TRUNCATE AND DROP STATEMENTS
+TRUNCATE                                            DROP
+1)trucate is DDL Statements.                      1) Drop is also a DDL Statements
+2)truncate statements removes all the             2) Drop removes all the records from the table along with the 
+records from the table permanently,Without           structure of table permanently from the database.
+affecting structure of the table.
+
+
+DML STATEMNTS
+2)UPDATE:
+By using Update statemnts we can update Individual records OR all records in a table.
+
+Case1: How to update a particular record in a table?
+
+SQL> select * from product;
+
+       PID PRODNAME        PRICE LOCATION   MANUF
+---------- ---------- ---------- ---------- ---------
+        10 haier          560.25 Bangalore  12-MAY-23
+        11 lenevo         650.75 mangalore  26-FEB-23
+        12 Dell           350.99 Vijaynagar 23-MAR-23
+        13 samsung        125.25 Bellary    27-MAY-23
+        14 acer           910.75 Raichur    18-NOV-22
+
+SQL> update product set price=220.22 where pid=14;
+
+1 row updated.
+
+SQL> select * from product;
+
+       PID PRODNAME        PRICE LOCATION   MANUF
+---------- ---------- ---------- ---------- ---------
+        10 haier          560.25 Bangalore  12-MAY-23
+        11 lenevo         650.75 mangalore  26-FEB-23
+        12 Dell           350.99 Vijaynagar 23-MAR-23
+        13 samsung        125.25 Bellary    27-MAY-23
+        14 acer           220.22 Raichur    18-NOV-22
+
+Case2: Can we Update a particular record with more than one column?
+
+SQL> update product set price=100,location='tdv' where pid=11;
+
+1 row updated.
+
+SQL> select * from product;
+
+       PID PRODNAME        PRICE LOCATION   MANUF
+---------- ---------- ---------- ---------- ---------
+        10 haier          560.25 Bangalore  12-MAY-23
+        11 lenevo            100 tdv        26-FEB-23
+        12 Dell           350.99 Vijaynagar 23-MAR-23
+        13 samsung        125.25 Bellary    27-MAY-23
+        14 acer           220.22 Raichur    18-NOV-22
+
+Case3:Update all records in a column.
+
+SQL> update product set price=555.55;
+
+5 rows updated.
+
+SQL> select * from product;
+
+       PID PRODNAME        PRICE LOCATION   MANUF
+---------- ---------- ---------- ---------- ---------
+        10 haier          555.55 Bangalore  12-MAY-23
+        11 lenevo         555.55 tdv        26-FEB-23
+        12 Dell           555.55 Vijaynagar 23-MAR-23
+        13 samsung        555.55 Bellary    27-MAY-23
+        14 acer           555.55 Raichur    18-NOV-22
+
+3)DELETE STATEMENTS
+Delete statemnts deletes individual records OR all records from the table temparorilly.
+
+CASE1:How to delete a particular record
+
+SQL> delete from product where pid=12;
+
+1 row deleted.
+
+SQL> select * from product;
+
+       PID PRODNAME        PRICE LOCATION   MANUF
+---------- ---------- ---------- ---------- ---------
+        10 haier          555.55 Bangalore  12-MAY-23
+        11 lenevo         555.55 tdv        26-FEB-23
+        13 samsung        555.55 Bellary    27-MAY-23
+        14 acer           555.55 Raichur    18-NOV-22
+
+CASE2:How to delete all the records from the table. 
+
+SQL> delete from product;
+
+4 rows deleted.
+
+    TCL(Transction control language) Statements:
+
+The TCL statements can be applied on only DML statements.
+The TCL statements includes:
+1)ROLLBACK
+2)COMMIT
+3)SAVEPOINT
+
+1)ROLLBACK:
+The rollback statements can be applied on DML statements,It rollbacks to till last saved transction.
+
+SQL> rollback;
+
+Rollback complete.
+
+SQL> select * from product;
+
+       PID PRODNAME        PRICE LOCATION   MANUF
+---------- ---------- ---------- ---------- ---------
+        10 haier          560.25 Bangalore  12-MAY-23
+        11 lenevo         650.75 mangalore  26-FEB-23
+        12 Dell           350.99 Vijaynagar 23-MAR-23
+        13 samsung        125.25 Bellary    27-MAY-23
+        14 acer           910.75 Raichur    18-NOV-22
+
+2)COMMIT
+Commit statements can be applied only on DML statements,it saves the DML Transction Permentely.
+
+SQL> commit;
+
+Commit complete.
+
+SQL> select * from product;
+
+       PID PRODNAME        PRICE LOCATION   MANUF
+---------- ---------- ---------- ---------- ---------
+        10 haier          560.25 Bangalore  12-MAY-23
+        11 lenevo         650.75 mangalore  26-FEB-23
+        12 Dell           350.99 Vijaynagar 23-MAR-23
+        13 samsung        125.25 Bellary    27-MAY-23
+        14 acer           910.75 Raichur    18-NOV-22
+
+
+3)Savepoint:
+Savepoint applied only on DML Statements,By using savepoint we can save DML transctions temparorily.
+
+SQL> create table employee(Empno number(2),
+  2  Empname varchar2(10),Job varchar2(10),Salary number(4));
+
+Table created.
+
+SQL> insert into employee values(10,'Santosh','Manager',7000);
+
+1 row created.
+
+SQL> select * from employee;
+
+     EMPNO EMPNAME    JOB            SALARY
+---------- ---------- ---------- ----------
+        10 Santosh    Manager          7000
+
+SQL> savepoint firststep;
+
+Savepoint created.
+
+
+Similar Way insert each record for each record create seperate savepoint in this way 5 savepoints.
+
+SQL> savepoint Secondstep;
+
+Savepoint created.
+
+SQL> insert into employee values(12,'jones','clerk',4500);
+
+1 row created.
+
+SQL> select * from employee;
+
+     EMPNO EMPNAME    JOB            SALARY
+---------- ---------- ---------- ----------
+        10 Santosh    Manager          7000
+        11 Adams      Analyst          3400
+        12 jones      clerk            4500
+
+SQL> savepoint Thirdstep;
+
+Savepoint created.
+
+SQL> insert into employee values(13,'gills','ceo',6700);
+
+1 row created.
+
+SQL> select * from employee;
+
+     EMPNO EMPNAME    JOB            SALARY
+---------- ---------- ---------- ----------
+        10 Santosh    Manager          7000
+        11 Adams      Analyst          3400
+        12 jones      clerk            4500
+        13 gills      ceo              6700
+
+SQL> savepoint Fourthstep;
+
+Savepoint created.
+
+
+Note:How to rollback a Specific savepoint?
+
+SQL> Rollback to thirdstep;
+
+Rollback complete.
+
+SQL> select * from employee;
+
+     EMPNO EMPNAME    JOB            SALARY
+---------- ---------- ---------- ----------
+        10 Santosh    Manager          7000
+        11 Adams      Analyst          3400
+        12 jones      clerk            4500
+
+
+1)Findout How many records available in a Table?
+a)create table student with 10 columns.-DDL STATEMENTS=10COLUMNS
+b)Insert 5 records into student Table.
+c)Update 3 records in a student Table.
+d)Insert 6 records in a student Table.
+e)Delete 4 records in a student Table.
+f)Insert 10 records in a Student Table.
+g)Update 8 records in a Student Table.
+i)Delete 6 records in a Student Table.
+
+j)Add a new Column Adress for Student Table.-DDL STATEMENT=1COLUMN
+k)Insert 8 records into a Student Table.
+l)Update 5 recorde in a Student Table.
+m)Insert 10 records into Student table.
+n)Delete 2 records into Student Table.
+o)insert 21 records.........
+p)update 5 records into.....
+q)Insert 25 records into.....
+r)Delete 4 records in ....
+s)Insert 11 records in.......
+t)Update 10 records in student Table
+u)Insert 22 records in Student Table.
+v)Update 20 records .......
+w)Insert 15 records into student Table.
+x)Delete 4 records in Student table.
+y)Insert 10 records in........
+z)Apply Rollback Statements findout number of records?
+
+Answer:11 Records.
+
+CONSTRAINTS:
+Constraints avoids the entry of invalid records into a table.
+
+The SQL Supports the following types of Constraints
+1)NOTNULL
+2)UNIQUE
+3)CHECK
+4)PRIMARYKEY
+5)FOREIGNKEY
+
+1)NOTNULL Constraint:
+The column which has applied by NOTNULL constraint the column never accept blank or null values.
+NOTE:
+NOTNULL Constraint can be applied in create table statement OR in Alter table Statement.
+
+SQL> create table employee(EmpNo number(2),
+  2  EmpName varchar2(10) constraint employeenotnull NOT NULL,
+  3  Job varchar2(10),Salary number(4));
+
+Table created.
+
+SQL> insert into employee values(11,'','Manager',7000);
+insert into employee values(11,'','Manager',7000)
+                               *
+ERROR at line 1:
+ORA-01400: cannot insert NULL into ("SYSTEM"."EMPLOYEE"."EMPNAME")
+
+2)Unique Constraint:
+The Column which has been applied by Unique Constraint that column never accept duplicate records but it accepts null records.
+NOTE:
+UNIQUE Constraint can be applie Either in CREATE Table statement OR In ALTER TABLE Statement. 
+
+SQL> alter table employee add constraint employeeunique UNIQUE(EMPNO);
+
+Table altered.
+
+
+Validate Unique Constarint:
+
+SQL> insert into employee values(10,'adams','analyst',9000);
+insert into employee values(10,'adams','analyst',9000)
+*
+ERROR at line 1:
+ORA-00001: unique constraint (SYSTEM.EMPLOYEEUNIQUE) violated.
+
+08/06/2023
+
+CHECK CONSTRAINTS:
+Check constraint is also called as business valid constraint,in this constraint we can use 
+Relational OR Logical Operators to apply the Constraint.
+NOTE:
+The check constraint can be applied either in Create table Statement OR Alter Table Statement.
+
+
+SQL> Alter table employee add constraint checkemployee
+  2  CHECK(Salary>=5000 and Salary<=7000);
+
+Table altered.
+
+Validate CHECK Constraint.
+
+SQL> insert into employee values(11,'Adams','Analyst',4900);
+insert into employee values(11,'Adams','Analyst',4900)
+*
+ERROR at line 1:
+ORA-02290: check constraint (SYSTEM.CHECKEMPLOYEE) violated.
+
+DATA DICTIONARY TABLE:
+
+CASE1:
+user_constraint Data Dictionary Table.
+SQL> desc user_constraints;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ OWNER                                              VARCHAR2(120)
+ CONSTRAINT_NAME                           NOT NULL VARCHAR2(30)
+ CONSTRAINT_TYPE                                    VARCHAR2(1)
+ TABLE_NAME                                NOT NULL VARCHAR2(30)
+ SEARCH_CONDITION                                   LONG
+ R_OWNER                                            VARCHAR2(120)
+ R_CONSTRAINT_NAME                                  VARCHAR2(30)
+ DELETE_RULE                                        VARCHAR2(9)
+ STATUS                                             VARCHAR2(8)
+ DEFERRABLE                                         VARCHAR2(14)
+ DEFERRED                                           VARCHAR2(9)
+ VALIDATED                                          VARCHAR2(13)
+ GENERATED                                          VARCHAR2(14)
+ BAD                                                VARCHAR2(3)
+ RELY                                               VARCHAR2(4)
+ LAST_CHANGE                                        DATE
+ INDEX_OWNER                                        VARCHAR2(30)
+ INDEX_NAME                                         VARCHAR2(30)
+ INVALID                                            VARCHAR2(7)
+ VIEW_RELATED                                       VARCHAR2(14)
+
+
+
+SQL> select constraint_name,constraint_type,status
+  2  from user_constraints where table_name='EMPLOYEE';
+
+CONSTRAINT_NAME                C STATUS
+------------------------------ - --------
+EMPLOYEENOTNULL                C ENABLED
+EMPLOYEEUNIQUE                 U ENABLED
+CHECKEMPLOYEE                  C ENABLED
+
+CASE2:All_Constraints
+
+
+
+SQL> select constraint_name,constraint_type,status
+  2  from All_Constraints where table_name='EMPLOYEE';
+
+CONSTRAINT_NAME                C STATUS
+------------------------------ - --------
+EMPLOYEENOTNULL                C ENABLED
+EMPLOYEEUNIQUE                 U ENABLED
+CHECKEMPLOYEE                  C ENABLED
+
+Note:While applying constraint either CREATE table statement OR in ALTER table
+statement if we did not provide user defined constraint name oracle provides system
+generated constraint names.
+
+
+SQL> create table Employee6(Empno number(2) UNIQUE,
+  2  Empname varchar2(10) NOT NULL,
+  3  salary number(4) CHECK(SALARY>=5000 and SALARY<=8000));
+
+Table created.
+
+SQL> select constraint_name,constraint_type,status from user_constraints
+  2  where table_name='EMPLOYEE6';
+
+CONSTRAINT_NAME                C STATUS
+------------------------------ - --------
+SYS_C007269                    C ENABLED
+SYS_C007270                    C ENABLED
+SYS_C007271                    U ENABLED
+
+PRIMARY KEY:
+Primary Key is a combination of Unique and NotNull constraints.
+
+The Primary Key has the following features:
+1)The column which has applied by Primary Key that column never accept duplicate records.
+2)The column which has applied by Primary Key that column never accept blank or null values.
+3)Only one Primary Key Must be applied per table.
+4)The column which has applied by Primary Key that column data type should not be long.
+5)The Main purpose of Primary Key for record Uniqueness.
+6)If we can add a single Primary Key on more than one column that indicates
+composite primary key.
+7)The Table which has applied by Primary Key that table is called as parent table.
+
+SQL> create table Student8(Rollno number(2),
+  2  FirstName varchar2(10),Branch varchar2(10),Age number(2),
+  3  DOJ Date,CityName varchar2(10));
+
+Table created.
+
+SQL> Alter table Student8 add constraint stud8pk PRIMARY KEY
+  2  (ROLLNO);
+
+Table altered.
+
+SQL> desc student;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ROLLNO                                    NOT NULL NUMBER(2)
+ NAME                                               VARCHAR2(10)
+ BRANCH                                             VARCHAR2(20)
+ ADDRESS                                            VARCHAR2(10)
+ AGE                                                NUMBER(2)
+
+
+VALIDATE PRIMARY KEY:
+
+SQL> insert into student8 values(11,'mani','civil',20,sysdate-200,
+  2  'Bangalore');
+
+1 row created.
+
+SQL> insert into student8 values(11,'sagnfx','gch',20,sysdate-200,
+  2  'Bangalore');
+insert into student8 values(11,'sagnfx','gch',20,sysdate-200,
+*
+ERROR at line 1:
+ORA-00001: unique constraint (SYSTEM.STUD8PK) violated.
+
+SQL> insert into student8 values('','sagnfx','gch',20,sysdate-200,
+  2  'Bangalore');
+insert into student8 values('','sagnfx','gch',20,sysdate-200,
+                            *
+ERROR at line 1:
+ORA-01400: cannot insert NULL into ("SYSTEM"."STUDENT8"."ROLLNO")
+
+
+
+FOREIGN KEY CONSTRAINT:
+
+The table which has applied by Foreign Key constraint that table is called
+as child table,The records available in a child table must have refferences
+from Parent table i.e. PRIMARY KEY.
+
+SQL> create table library(Rollno number(2),BookName varchar2(10),
+  2  Author varchar2(10),Borrowed Date);
+
+Table created.
+
+SQL> Alter table library add constraint libraryfk FOREIGN KEY(ROLLNO)
+  2  References STUDENT8(ROLLNO);
+
+Table altered.
+
+SQL> insert into library values(11,'zoology','Richard',sysdate-25);
+
+1 row created.
+
+SQL> select * from student8;
+
+    ROLLNO FIRSTNAME  BRANCH            AGE DOJ       CITYNAME
+---------- ---------- ---------- ---------- --------- ----------
+        11 mani       civil              20 20-NOV-22 Bangalore
+
+SQL> select * from library;
+
+    ROLLNO BOOKNAME   AUTHOR     BORROWED
+---------- ---------- ---------- ---------
+        11 zoology    Richard    14-MAY-23
+
+SQL> insert into library values(11,'anatomy','Williams',sysdate-10);
+
+1 row created.
+
+SQL> select * from library;
+
+    ROLLNO BOOKNAME   AUTHOR     BORROWED
+---------- ---------- ---------- ---------
+        11 zoology    Richard    14-MAY-23
+        11 anatomy    Williams   29-MAY-23
+
+
+INTEGRITY CONSTRAINT VIOLATION:
+CASE1: Trying to insert records directly into child table which does not
+have any references in a parent table.
+
+SQL> insert into library values(11,'selenium','jones',sysdate-150);
+
+1 row created.
+
+SQL> insert into library values(12,'selenium','jones',sysdate-150);
+insert into library values(12,'selenium','jones',sysdate-150)
+*
+ERROR at line 1:
+ORA-02291: integrity constraint (SYSTEM.LIBRARYFK) violated - parent key not
+found.
+
+CASE2:
+Delete record from parent table in child table there are some records refferencing parent
+table that particular record.
+SQL> delete  from student8 where Rollno=11;
+delete  from student8 where Rollno=11
+*
+ERROR at line 1:
+ORA-02292: integrity constraint (SYSTEM.LIBRARYFK) violated - child record
+found.
+
+ON DELETE CASCADE:
+On delete cascade can be applied only on Foreign Key constraint,if we
+delete any record from the parent table,the corresponding records from
+the child table delete automatically.
+
+
+ON DELETE SET NULL:
+
+On delte set null can be applied only on foreign key constraint if we
+delete any records from parent table the corresponding child table set
+to null value.
+
+SQL> Alter table library Add constraint hjhufk FOREIGN KEY(ROLLNO)
+  2  REFERENCES STUDENT8(ROLLNO) ON DELETE SET NULL;
+
+Table altered.
+
+SQL> select * from library;
+
+    ROLLNO BOOKNAME   AUTHOR     BORROWED
+---------- ---------- ---------- ---------
+        11 zoology    Richard    14-MAY-23
+        11 anatomy    Williams   29-MAY-23
+        11 selenium   jones      09-JAN-23
+
+SQL> delete from student8 where rollno=11;
+
+1 row deleted.
+
+SQL> select * from student8;
+
+no rows selected
+
+SQL> select * from library;
+
+    ROLLNO BOOKNAME   AUTHOR     BORROWED
+---------- ---------- ---------- ---------
+           zoology    Richard    14-MAY-23
+           anatomy    Williams   29-MAY-23
+           selenium   jones      09-JAN-23
+
+
+HOW TO ENABLE OR DISABLE THE EXISITING CONSTRAINT.
+
+SQL> select * from employee;
+
+     EMPNO EMPNAME    JOB            SALARY
+---------- ---------- ---------- ----------
+        10 Santosh    Manager          7000
+
+SQL> create table library(Rollno number(2),BookName varchar2(10),
+  2
+SQL> select constraint_name,constraint_type,status from
+  2  user_constraints where table_name='EMPLOYEE';
+
+CONSTRAINT_NAME                C STATUS
+------------------------------ - --------
+EMPLOYEENOTNULL                C ENABLED
+EMPLOYEEUNIQUE                 U ENABLED
+CHECKEMPLOYEE                  C ENABLED
+
+
+SQL> Alter table employee disable constraint employeeunique;
+
+Table altered.
+
+SQL> select constraint_name,constraint_type,status from
+  2  user_constraints where table_name='EMPLOYEE';
+
+CONSTRAINT_NAME                C STATUS
+------------------------------ - --------
+EMPLOYEENOTNULL                C ENABLED
+EMPLOYEEUNIQUE                 U DISABLED
+CHECKEMPLOYEE                  C ENABLED
+
+HOW TO ENABLE THE CONSTRAINT:
+
+SQL> Alter table employee enable constraint employeeunique;
+
+Table altered.
+
+SQL> select constraint_name,constraint_type,status from
+  2  user_constraints where table_name='EMPLOYEE';
+
+CONSTRAINT_NAME                C STATUS
+------------------------------ - --------
+EMPLOYEENOTNULL                C ENABLED
+EMPLOYEEUNIQUE                 U ENABLED
+CHECKEMPLOYEE                  C ENABLED
+
+
+
+
+
+
+

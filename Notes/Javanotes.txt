@@ -1,0 +1,764 @@
+14/06/2023 -CORE JAVA
+
+How to Set the environment variable for jdk or how to set the class path for jdk.
+
+STEP1:
+Variable Name: JAVA_HOME 
+Variable Value:C:\Program Files\Java\jdk1.8.0_361
+In Windows Explorer(Windows+e)
+Right Click On THIS PC---->PROPERTIES--->ADVANCED SYSTEM SETTINGS-->CLICK ON --->SYSTEM PROPERTIES WINDOW--->ENVIRONMENT VARIABLES--->SYSTEM VARIABLES SECTION
+--->CLICK ON NEW BUTTON-->VARIABLENAME:JAVA_HOME---->BROWSE THE DIRECTORY PATH(C:\Program Files\Java\jdk1.8.0_361).---->CLICK ON OK BUTTON.
+
+STEP2:
+IRRESPECTIVE ANY MACHINE 
+EDIT THE PATH VARIABLE--->SELECT ANY ONE OF VARIABLE--->PRESS BUTTON P --->SELECT PATH VARIABLE-->CLICK ON EDIT BUTTON-->CLICK ON NEW BUTTON-->CLICK ON BROWSE OPTION
+--->C:\Program Files\Java\jdk1.8.0_361\\bin-->CLICK ON EACH AVAILABLE OK BUTTON.
+
+SAMPLE JAVA PROGRAM
+class Test
+{
+    public static void main(String args[])
+    {
+      System.out.println("Welcome To Core Java");
+ 
+    }
+
+}
+
+15/06/2023
+Explanation of Sample Java Program
+class Test
+{
+    public static void main(String args[])
+    {
+ 
+        System.out.println("Welcome To Core Java");      
+    }
+
+}
+
+1)class: It indicates the definition of the class.It must be in lowercase and it is an Inbuilt Keyword.
+
+---> <ClassName>:It is the name of class as per the java coding standard the first character name should be Uppercase.
+While Providing the name of class they have to follow the rules:
+1)The Name of class shouldnot starts with integer.
+2)The Name of the class Shouldnot contain Space.
+
+2)OpenFlowerBracket({):
+It indicates the beginging of any block such as method,loop,class etc.,
+
+3)CloseFlowerBracket(}):
+It indicates end of block,The block can be a method,class,loop etc.,
+
+3)public:It is an access specifier,If any members of the class has declared as public it can be accessible irrespective of any package.
+
+4)static:The static members of the class allocates meomary only during the runtime,all static members are at class level.
+
+5)void:void indicates methods which donot return any value and void keyword can be used before method name.
+
+6)main:main is a method it is an entry point,it acts as a thread.(Threads allows a program to operate more efficiently by doing multiple things at the same time. Threads can be used to perform complicated tasks in the background without interrupting the main program).
+
+
+7)(String args[]):args is an array and its datatype is String(It is a Single Dimensional array).
+
+Note:main is the method it accepts String array as a parameter.
+
+Syso:It is a print statement in core java after printing the statement it applies new line character.
+
+Note:Diff b/w syso(println) and syso(print)
+syso(println) statement after printing the statemnt it applies new line character.
+
+syso(print) statement after printing the statement it never applies a new line character.
+Example for syso(print)
+
+class Fruitdemo
+{
+    public static void main(String args[])
+    {
+       System.out.print("Mango");
+       System.out.print("Orange");
+    }
+}
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+VARIABLES:
+Variables are used to store the value,The value store in a variable can change during runtime.
+
+class VariableDemo
+{
+    public static void main(String args[])
+    {
+        int a=25;
+        System.out.println(a);
+        a=50;
+        System.out.println(a);
+        a=75;
+        System.out.println(a);
+    }
+
+}
+
+DATA TYPE AVAILABLE IN CORE JAVA
+Core Java supports 2 types of Data Types:
+1)Primitive Data Type
+2)Dervied Data Type
+
+1)Primitive Data Type:
+The Primitive data type as following Data type
+1.Integer Data Type
+ a)byte(-128 to 127)(8bits)
+byte a;
+a=50;
+Or
+byte a=50;
+-------
+b)short(16bits)
+short a;
+a=50;
+Or
+short a=50;
+----------
+c)int(32bits)
+int a;
+a=50;
+Or
+int a=50;
+-------
+d)long(64bits)
+long a;
+a=60L;
+or
+long a=60;
+-----
+II.Decimal Datatypes:
+a)float a;
+a=12.75f;
+
+----------
+b)double
+double d=12.75;
+or
+double d;
+d=12.75;
+
+III.boolean data type:
+boolean a=true;
+or
+boolean a=false;
+or
+boolean a;
+a=true;
+
+iv)Character Data Type:
+char ch='Y';
+or
+char ch;
+ch='Y';
+
+2)Dervied Data Type:It represents refference or object.
+
+String s="Programming";
+or
+String s;
+s="Programming";
+---------------------------------
+
+Primitive Datatype			Wrapperclasses
+byte					Byte
+short                                   Short
+intger                                  Integer
+long                                    Long
+
+OPERATORS
+I.ARITHEMATIC OPERATORS:
++   -----> Addition
+-  ----->Substraction
+*  ------>Multiplication
+/  ------>Division
+%  ----->Modulus
+
+--------
+II.RELATIONAL OPERATOR
+>  ---->Greaterthan
+<  ---->Lesserthan
+>=  ---->Greaterthan equal to
+<=  ---->Lesserthan equal to
+== ---->Equal to
+!= ---->Not Equal to
+
+Note:The RESULT OF ALL RELATIONAL OPERATOR IS BOOLEAN VALUE
+
+
+--------------
+III. CONCATENATION OPERATOR
++ -------> Concatenation
+<opearand>         <Operator>    <operand>
+10                   + 		  20
+"10"		     +            20
+10                   +            "20"
+"10"                 +            "20"
+
+Logical Operator
+&&    --->  and operator
+A	B	A && B
+0	0	0
+0	1	0
+1	0	0
+1	1	1
+
+||    -----> OR operator 
+A	B	A || B
+0	0	0
+0	1	1
+1	0	1
+1	1	1
+
+!  NOT OPERATOR
+A	!A
+0	1
+1	0
+-----------------
+V.Increment/Decrement Operator
+int i=10;
+i++  => 11;
+
+int i=10;
+i--  =>9;
+
+Arithemeatic Assignment Operator
+int i=10;
+i+5=15;
+
+b)Substraction assignment operator
+int i=10;
+i-5=5;  =>5
+or
+i-=5; => 5
+c)Multiplication assignment Operator
+int i=10;
+i*2=20;
+Or
+i*2=20;
+
+d)Division assignment Operator
+int i=20;
+i=i/4=5;
+or
+i/=4;
+e)Modulus assignment Operator
+int i=9;
+i=i%2; =>1;
+or
+i%=2; =>1
+
+Note:
+All Logical Operators Provides boolean value.
+
+class AndlogicalOperatorDemo
+{
+   public static void main(String args[])
+   {
+       int x,y;
+       x=25;
+       y=50;
+       boolean v1=((x<y) && (y>x));
+       System.out.println(v1);
+   }
+
+
+}
+----------------------------------------------------------------
+
+16/06/2023
+SPECIAL CASES
+In a main method can we interchange public and static keyword?
+ans:- Yes.
+
+class Demo1
+{
+    static public void main(String args[])
+    {
+ 
+        System.out.println("Welcome To Programming");      
+    }
+
+}
+
+Case2:Can we change name of parameter in main method?
+Ans:-Yes.
+class Demo1
+{
+    public static void main(String kk[])
+    {
+ 
+        System.out.println("Welcome To Programming");      
+    }
+
+}
+
+Case3:For main method Parameter can we use rectangular brackets for String datatype.
+Ans:-Yes.
+class Demo1
+{
+    public static void main(String[] args)
+    {
+ 
+        System.out.println("Welcome To Programming");      
+    }
+
+}
+
+Case4:If Name of the class and Name of the file is different.
+
+class Sample
+{
+    public static void main(String args[])
+    {
+         System.out.println("Welcome to Programming");
+
+    }
+
+}
+
+Assume there is a class Sample I have saved this file has example.java I can do the Compilation as follows.
+
+javac Example.java if compilation becomes succesful it generates .class file has Sample.class.
+If there are n number .java files having class names and file names different it will be challenge for identifing
+.class files v/s .java files.So avoid this kind of risks or challenges we have to follow class name and file name
+should be the same.
+
+
+COMMONDLINE ARGUMENTS:
+
+By using Commondline arguments we can provide a input to a program.
+
+class CommondLineDemo1
+{
+    public static void main(String args[])
+    {
+       String s1=args[0];
+       System.out.println(s1);
+       String s2=args[1];
+       System.out.println(s2);
+
+    }
+}
+We have to provide values at the time of execution.
+
+D:\Java June>java CommondLineDemo1
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 0
+        at CommondLineDemo1.main(CommondLineDemo1.java:5)
+
+
+Perform addition of 2 numbers by using Commondline Arguments.
+
+class AdditionalCommondLine
+{
+    public static void main(String args[])
+    {
+        int x=Integer.parseInt(args[0]);         //parse is a method name
+        int y=Integer.parseInt(args[1]);
+        int res=(x+y);
+        System.out.println("Addition Result:"+res);   here we have to give any symbol insted of : like >,? etc,.
+    }
+
+}
+
+Perform addition of 2 numbers by using Commondline Arguments by using Double Value.
+
+class AdditionalDoubleCommondLine
+{
+    public static void main(String args[])
+    {
+        double x=Double.parseDouble(args[0]);         //parse is a mathod name
+        double y=Double.parseDouble(args[1]);
+        double res=(x+y);
+        System.out.println("Addition Result:"+res);   //here we have to give any symbol insted of : like >,? etc,.
+    }
+
+}
+
+ASSIGNMENT 
+1Apply the commond line arguments on
+a)Arithematic Operators
+b)Relational Operators
+
+--------------------------------------------------------------------------------------------------------------------
+21/06/2023
+WAP TO DISPLAY FIBONACII NUMBERS
+0 1 1 2 3 5 8 13 21 34 55 89
+class Fibonacii
+{
+     public static void main(String args[])
+     {
+          int fn=0;
+          int sn=1;
+          System.out.println(fn+" "+sn);  // here " " is used to give the gap for numbers
+          for(int i=1;i<=10;i++)
+          {
+              int tn=fn+sn;
+              System.out.print("  "+tn+" ");
+              fn=sn;
+              sn=tn;
+          }
+    
+     }
+
+
+}
+
+
+Pattern Matching Design
+
+
+class Patterndemo
+{
+    public static void main(String args[])
+    {
+      for(int i=1;i<=3;i++)
+      {
+         for(int k=1;k<=6;k++)
+         {
+            System.out.print("*");
+         }
+         System.out.println();
+      }
+
+    }
+
+}
+
+Asssgns
+1)
+a)                     b)2                        c)5 5 5 5 5       d)
+1                        2 2                        5 5 5 5
+1 2                      2 2 2                      5 5 5
+1 2 3                    2 2 2 2                    5 5
+1 2 3 4                  2 2 2 2 2                  5
+1 2 3 4 5
+
+
+30/06/2023
+
+METHODS:
+
+In core java broadly grouped into 2 types
+1)Methods which donot return value.
+2)Methods which return value.
+
+
+1)Methods which donot return value:-
+These type of methods must be preceeded by Void Keyword,Here the methods can be grouped into 2 types again:
+a)Methods which donot have parameters
+b)Methods which have parameters 
+
+a)
+
+class Demo
+{
+    void method1()
+    {
+
+    }
+     void method2()
+    {
+
+    }
+     void method3()
+    {
+
+    }
+
+}
+
+package com.practicequestions;
+
+class Calculations
+{
+	void additions()
+	{
+		int res,x,y;
+		x=10;y=50;
+		res=(x+y);
+		System.out.println("Addition Result:"+res);
+	}
+	void multiplication()
+	{
+		int res,a,b;
+		a=12; b=10;
+		res=(a*b);
+		System.out.println("Multiplication Result:"+res);
+	}
+}
+
+public class Methods {
+
+	public static void main(String[] args) {
+		Calculations obj=new Calculations();
+		obj.additions();
+		obj.multiplication();
+		Calculations o1=new Calculations();
+		o1.additions();
+		o1.multiplication();
+
+	}
+
+}
+
+o/p
+Addition Result:60
+Multiplication Result:120
+Addition Result:60
+Multiplication Result:120
+
+
+b)PASSING PARAMETER
+class Demo
+{
+    void method1(parameter1)
+    {
+
+    }
+     void method2(parameter2)
+    {
+
+    }
+     void method3(parameter3)
+    {
+
+    }
+
+}
+
+package com.practicequestions;
+class Calculations2
+{
+	void addition(int x,int y)
+	{
+		int res=(x+y);
+		System.out.println("Additional Result:"+res);
+	}
+	void multiplication(int a,int b)
+	{
+		int res=(a*b);
+		System.out.println("Multiplication Result:"+res);
+	}
+}
+
+public class Methods1 {
+
+	public static void main(String[] args) {
+		Calculations2 o=new Calculations2();
+		o.addition(12, 10);
+		o.multiplication(13, 12);
+		
+		Calculations2 t=new Calculations2();
+		t.addition(100, 120);
+		t.multiplication(45, 12);
+		
+
+	}
+
+}
+o/p
+Additional Result:22
+Multiplication Result:156
+Additional Result:220
+Multiplication Result:540
+
+Verify The given character is vowel or not
+package com.practicequestions;
+class Character
+{
+	void VerifyVowel(char ch)
+	{
+		switch(ch)
+		{
+		case 'a':case 'e':case 'i':case 'o':case 'u':
+		 System.out.println("It is a Vowel");
+		 break;
+		 default:
+			 System.out.println("It is not a Vowel");
+			 break;
+		}
+		
+	}
+	
+}
+
+public class Characterdemo {
+
+	public static void main(String[] args) {
+		Character j=new Character();
+		j.VerifyVowel('a');
+		j.VerifyVowel('y');
+	
+
+	}
+
+}
+o/p
+a It is a Vowel 
+y It is not a Vowel 
+
+------->CallByValue:
+In call by value there is a involvement of primitive data type if you try to use these variable values in some other method if we can apply any changes
+for those variables those changes never reflect outside of the method.
+
+package com.practicequestions;
+class Callbyvalue
+{
+	void calculate(int x,int y)
+	{
+		x+=100;
+		y*=15;
+		System.out.println("In method value of x:"+x);
+		System.out.println("In method value of y:"+y);
+	}
+}
+public class CallbyValueDemo {
+
+	public static void main(String[] args) {
+		int x,y;
+		x=10;y=5;
+		System.out.println(" Value of x:"+x);
+		System.out.println(" Value of y:"+y);
+		Callbyvalue j=new Callbyvalue();
+		j.calculate(x, y);
+		Callbyvalue i=new Callbyvalue();
+		i.calculate(x, y);
+		System.out.println("After method execution value of x:"+x);
+		System.out.println("After method execution value of y:"+y);
+		
+
+	}
+
+}
+
+o/p
+In method value of x:110
+In method value of y:75
+After method execution value of x:10
+After method execution value of y:5
+
+
+b)CallbyRefference:
+
+In CallbyRefference there is a involvement of derived types if any changes applied on these derived types in a methods those changes are reflecting outside.
+
+package com.practicequestions;
+class CallByRefference
+{
+	int x,y;
+	void calculate(CallByRefference o)
+	{
+		o.x=100;
+		o.y=15;
+		System.out.println("In Method, Value of x :"+o.x);
+		System.out.println("In Method, Value of y :"+o.y);
+	}
+}
+
+public class CallbyRefferenceDemo {
+
+	public static void main(String[] args) {
+		CallByRefference o=new CallByRefference();
+		o.x=10;
+		o.y=5;
+		System.out.println("Value of x :"+o.x);
+		System.out.println("Value of y :"+o.y);
+		o.calculate(o);
+		System.out.println("After execution of the method,Value of x:"+o.x);
+		System.out.println("After execution of the method,Value of y:"+o.y);
+
+	}
+
+}
+
+o/p
+Value of x :10
+Value of y :5
+In Method, Value of x :100
+In Method, Value of y :15
+After execution of the method,Value of x:100
+After execution of the method,Value of y:15
+
+
+WAM For this method pass 1-D String array as a parameter and read 1st half of the elements.
+package com.practicequestions;
+class ArrayTesting
+{
+	void readhalfofElements(String s[])
+	{
+		for(int i=0;i<s.length/2;i++)
+		{
+			System.out.println(s[i]);
+		}
+	}
+}
+
+public class ArraySampleDemo {
+
+	public static void main(String[] args) {
+		ArrayTesting o=new ArrayTesting();
+		String str[]= {"Mani","Sampath","Shivu","Suman","RockyBhai"};
+		o.readhalfofElements(str);
+
+	}
+
+}
+
+o/p
+Mani
+Sampath
+
+Based on the given Integer 1-D array create a resultant array and read the elements from the resultant array.
+package com.practicequestions;
+class Demo
+{
+	void resultantArray(int x[],int y[])
+	{
+		int res[]=new int[x.length+y.length];
+		//assign first array
+		int k=0;
+		for(int i=0;i<x.length;i++)
+		{
+			 res[k]=x[i];
+			k=k+1;
+		}
+		//assign second array
+		for(int j=0;j<y.length;j++)
+		{
+			res[k]=y[j];
+			k=k+1;
+		}
+		//read elements from resultant array
+		for(int zz:res)
+		{
+			System.out.println(zz);
+		}
+	}
+}
+
+public class ResultantArrayDemo {
+
+	public static void main(String[] args) {
+		Demo o=new Demo();
+		int a[]= {10,20,30,40};
+		int b[]= {44,55,66,77,88};
+		o.resultantArray(a, b);
+	}
+
+}
+
+o/p
+10
+20
+30
+40
+44
+55
+66
+77
+88
+

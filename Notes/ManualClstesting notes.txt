@@ -1,0 +1,858 @@
+: What you have to do?
+Ans: 
+1. Regular to the class
+2. Ask questions
+   (a) What, Why, How
+3. Attend the tests
+4. Presentations (Interaction) 100%
+5. Common sense
+6. Make separete note for tests
+7. Make a separet note for assignments
+
+After completion of course: We conduct mock interviews, if you clear the mock interviews then only we will provide the job through our consultency.
+
+What if i failed to clear the mock interviews: we will give time based on your preparation.
+read on Daily basis.
+
+
+Introduction: 90 era
+
+Earlier in any company these was a team called development Team.
+
+If customer gives the requirements (ICICI bank) to the IT companies. 
+Wipro: In wipro the development team (group of developers) uses to collect and understands the requirement.
+As per the requirements, they use to create a design and later convert the design into a software by writing the programming languages.
+*** Once software was ready, the dev team use to test the software & release to the market.
+With this process, the customer/end user are not happy. Bcoz the software contains so many defects.
+
+They want to know the root cause: Nothing worked out.
+One person told them: Pschycology
+
+We dont find mistakes in our work (dev). But we are masters in finding others mistakes.
+we will create one separate team (Software testers) & we will ask them to find the developers mistakes
+
+Results were awesome. Robust software was the end result.
+
+Software Testing: It is a process of testing the functionality and behavior of a software application against CRS/BRS.
+
+CRS: Customer Requirement Specifications
+BRS: Business Requirement Specifications
+=============================================================
+Software Testing: It is an ART of finding the defects in the software application against CRS/BRS.
+=================================================================
+Software Testing: It is a process of executing the program with the intention of indentifing the defects in the software applications against CRS/BRS.
+
+SDLC: Software Development Life cycle
+
+It is a systemmatic process/approach of developing the software applications/projects. It starts from requirement collection and ends with quality deliverables.
+
+The SDLC has following models:
+1. Waterfall model
+2. Spiral model
+3. Prototype model
+4. V&V model
+5. Hybrid model
+**6. Agile model
+7. Derived model
+
+Module: In a software technology the application is logicvally divided into meaningful segments. Each segment is k.a., Module
+Ex:Gmail
+Compose
+Inbox
+Draft
+Thrash
+Sent Item
+Settings
+
+Environment: It is a server/set of servers in which the software is installed.
+
+Test Environment: It is a server/set of servers in which the software is installed for testing purpose.
+
+Dev Environment: It is a server/set of servers in which the software is installed for development purpose.
+
+Staging Environment: It is a server/set of servers in which the software is installed for pre-production activities. Its also a dummy environment.
+
+Prod Environment: It is a server/set of servers in which the software is installed for business purpose.
+
+Req1: Login to application
+Req2: Logout from application
+Req3: create user
+.
+.
+.
+.
+.
+
+QA has to read and understand the requirements.
+QA has to write the test cases for the given requirements
+
+Login to application: 
+Write the test scenario for the given requirements:
+1. Login with valid credentials
+2. Login with invalid credentials
+3. Login with Modified password
+4. Login with >3 invalid login attempts
+
+Write the test cases for the above scenarios:
+
+
+
+
+22/06/2023
+
+Requirements:
+1. login: 10 test cases 
+2. logout: 5 test cases
+3. create user : 40 test cases
+4. delete user: 25 test cases
+100.
+total: 1500 test cases
+
+Design is completed:
+Coding & Testing:
+Team will prioritize the requirements & as per the prioritization the dev will start developing one by one feature/requirements.
+
+Build1 + RN => login + Logout
+This build1 is given to QA for testing purpose along with Release Note doc.
+QA actions:
+1. Read the RN & understand the build scope
+2. Select the test cases as per the build scope & provide the estimation
+Ex: 15 test cases you have to select (login + logout)
+3. Execute the test cases against the build1
+4. Log the defect if exist & finally prepare the consolidated test execution report.
+4 defects
+========================
+Build2 + RN: Build1 features + (new features) create user + defect fix
+QA actions:
+1. Read the RN & understand the build scope
+2. Select the test cases as per the build scope & provide the estimation
+Ex: 15 + 40 test cases you have to select (login + logout + create user)
+3. Execute the test cases against the build1
+4. Log the defect if exist & finally prepare the consolidated test execution report.
+10 defects
+========================
+Build3 + RN: Build2 features + (new features) delete user + defect fix
+QA actions:
+1. Read the RN & understand the build scope
+2. Select the test cases as per the build scope & provide the estimation
+Ex: 15 + 40 + 25 test cases you have to select (login + logout + create user + delete user)
+3. Execute the test cases against the build1
+4. Log the defect if exist & finally prepare the consolidated test execution report.
+10 defects
+
+Build3: login + logout + create user + delete user
+
+New feature: functional testing
+Defect fix: Retesting
+Old feature: Regression testing
+Regression testing is the entry point for the automation.
+
+Functional Testing:
+   Testing the functionality and behaviour of each & every components regoursly is k.a., Functional Testing.
+   The extended level of functional testing is also k.a, UI Testing.
+
+When Dev completes the coding of the selected requirements, they will create a build & give it to testing team along with Release Note (RN) for testing purpose. 
+QA will go through RN, select the test cases as per the current build scope.
+
+
+The following Test cases will be selected.
+1. Functional Test cases
+2. Integration Test cases
+3. System Test cases
+
+Pick functional test cases & start executing them as part of functional Testing.
+
+Note: Always perform +ve & -ve testings.
+
+For example we need to perform Functional Testing on the FB registration page.
+ 
+FB Reg Page Reqts will talk about the following components:
+
+1. First Name Edit field: It should accept characters, Mandatory & 8-15 digits.
+2. SurName edit field: It is a Optional field & accepts characters, special characters.
+3. Email OR Phone number Edit field: It should accept Number, special characters (@,., _ etc) & characters
+4. Password edit field: It should accept characters, special character, numbers, 8-15 digits, Encrypted
+5. Retype Password edit field, Encrypted
+6. Gender Radio buttons
+7. DOB drop downs
+8. Sign Up Button
+
+
+Sample functional Test cases for FB Reg Page:
+1. All the below components should exist in FB Reg page
+a). First Name Edit field: 
+b). SurName edit field:
+c). Email OR Phone number Edit field:
+d). Password edit field:
+e). Retype Password edit field
+f). Gender Radio buttons (Male, Female & Other)
+g). DOB drop downs
+h). Sign Up Button
+
+2. Enter valid details in all the fields and click on "Sign Up" button & verify FB Reg happens successful.
+
+3. Functional test cases for below components:
+(a) First Name Edit field
+   a.1: Astrix(*) symbol should be present (+)
+   a.2: Enter characters only (+)
+   a.3: Enter characters between 8-15 digits (+)
+   a.4: Enter <8 digits OR >15 digits (-)
+   a.5: Enter only numbers (-)
+   a.6: Enter alpha numeric OR special characters (-)
+   a.7: Keep it blank(-)
+
+
+   (b) SurName edit field:
+   b.1: Keep it blank (+)
+   b.2: Enter characters of 8-15 digits (+)
+   b.3: Enter Special characters OR alpha numeric (+)
+   b.4: Enter numbers (+)
+
+
+   (c) Email OR Phone number Edit field:
+   c.1: Enter characters & special characters (+)
+   c.2: Enter 10 digits number (+)
+   c.3: Enter special characters @, _ and . (+)
+   c.4: Enter other special characters ( , #$ etc) (+)
+   c.5: Enter mail id without @ (-)
+   c.6: Enter phonenumber less than 10 digits (-)
+
+   
+
+Note: These below points are applicable to all the testings
+1. Always perform both +ve & -ve testings for the requirements.
+2. Always perform +ve testing first. If s/w is working for +ve testing then only perform -ve testing.
+3. While writing test case write both +ve & -ve test cases
+4. Always perform optimized testing. Never perform under testing OR over testing.
+
+
+----------------------------------
+Q: What is +ve testing?
+Ans: Testing the application with valid input data is k.a., +ve testing.
+
+Q: What is -ve testing?
+Ans: Testing the application with invalid input data is k.a., -ve testing.
+------------------------------------
+
+During Functional testing (while executing functional test cases) if QA finds any defects it should be logged immediately against the dev in a defect tracking tools.
+ (EX: Bugzilla, JIRA, ALM, TFS, Mantis etc). Once all the functional test cases are executed, prepare consolidated test execution report.
+
+
+Consolidate report should consist of:
+ # of test cases selected for execution :  100
+ # of test cases executed/Completed	:  50
+ # of test cases passed			:  45
+ # of test cases failed			:  5
+ # of test cases blocked		:  10
+ # of test cases pending		:  40 
+ # of defects logged			:  3
+
+
+27/06/2022
+ActiTime WorkFlows:
+
+1. Login-->Logout
+2. Login-->Create New user-->Delete user--> logout
+3. Login-->Create new user-->Edit user-->Delete user-->Logout
+3. Login-->Create new user-->Login with newly create user-->Delete the user-->Logout
+4. Login-->Create new user-->Go to task menu-->Add  customer-->Add Project-->Add Tasks-->Delete Task, Project and customer-->Logout
+
+
+System Testing:
+   It is an end-to-end (E2E) testing in which the QA will test the actual customer/business scenarios using customer data is k.a, System Testing.
+
+As we are performing actual customer business scenarios, we do need actual customer test data. For that we ask data OR DB dump from the customer.
+
+
+Requirement for System Testing:
+
+1st time apply for O.D (Over Draft)
+Rs. 	    50,000/-
+Interest:   3,000/-
+Activation: 1,000/-
+------------------
+            54,000/-
+------------------
+
+2nd Time apply O.D
+Rs.         50,000/-
+Interest:   3,000/-
+------------------
+            53,000/-
+------------------
+
+Integration Testing (IT): 
+
+Testing the interface OR bridge OR gateway between 2 or more modules or features is k.a., IT.
+
+IT of 2 types:
+1. Incremental IT
+   (a) Top down
+   (b) Bottom up
+
+2. Non-Incremental IT
+   (a) Bigbang
+   (b) Sandwitch
+------------------------------------------
+
+1. Incremental Integration Testing:
+(a) Top down:
+   This type of integration testing is performed when you have a modules in which the data is flowing from higher modules towards its lower modules.
+
+   Arrange the modules in such a way that the dataflow is happening from higher modules towards its lower module. Verify that the Data flows from higher module is successful & lower module will receives the data successful.
+
+(b) Bottom Up:
+This type of integration testing is performed when you have a modules in which the data is flowing from lower modules towards its higher modules.
+
+   Arrange the modules in such a way that the dataflow is happening from lower modules towards its higher module. Verify that the Data flows from lower module is successful & higher module will receives the data successful.
+------------------------------------------
+2. Non-Incremental IT
+(a) bigbang: Here a single module can have multiple interfaces exposed to multiple modules.
+
+BigBang testing limitations:
+1. We may miss to test some of interefaces among many.
+2. It is very difficult to indentify the root cause of the defects.
+3. It takes more time to test as we need to test all the interfaces.
+
+
+(b) sandwitch:
+It is a combination of incremental integration testing & non-incremental integration testing.
+-----------------------------------------
+Stub and Driver:
+Stub: A dummy low level module in top down incremental integration testing is k.a., Stub. It simulates the activities of low level model.
+
+Driver: A dummy high level module in bottom up incremental integration testing is k.a., driver. It simulates the activities of high level model.
+
+
+Q: Who provides the stub/Driver?
+Ans: The dev will provide the stub/Driver to QA for testing purpose until the actual module is ready.
+
+
+Q: There are 4 modules are present. What kind of integration testing you perform?
+Ans: A B C D
+Ans: First understand the relationship between each modules & then based on the relationship we decide what kind of integration testing need to be done.
+
+
+Q: What is system Integration Testing?
+Ans: Integration between 2 independent s/w's is k.a., system Integration Testing.
+Ex: Amazon + Payment modules
+
+Ad-Hoc Testing (AT): 
+   Testing the application randomly without referring to the requirements is k.a., AT.
+   
+It is -ve testing. Here we dont refer to requirements. We just randomly perform the testing.
+
+It is also k.a., Random Testing, Monkey Testing OR Gorilla Testing
+
+
+Q: When to do AT?
+Ans: AT is not a mandatory Testing. But it is recommended. Hence it should be done after completion of all the testings provided If you have a time.
+
+
+Q: Does Test cases are required for AT?
+Ans: No.
+
+
+Q: Why ad-hoc Testing is required?
+Ans: Customer can encounter the issues when they use the s/w randomly. We don't want our customer to face the issues when they use the s/w randomly. Hence we act as customer OR end user & perform AT.
+
+
+Note: Most of the ad-Hoc defects are invalid. It will we considered valid only when the issue is having impact on the business.
+
+
+Q: What QA has to do If they find blocker OR critical defects during AT?
+Ans:  
+  (a) QA should log the blocker/critical defects immediately against the dev.
+  (b) QA must document the defect (Write the Test case). So that the same idea will be executed over all the builds.
+
+----->28/06/2023
+
+Exploratory Testing (ET):
+   Explore OR understand the application first, write the test cases and then test the application is k.a., ET.
+
+
+Q: When to go for ET?
+1. When reqts are not clear OR not updated
+2. Reqts are present but no time to go through it.
+3. The old application came for updation.
+4. When you join the organization in the middle of the project.
+
+
+Q: Dis-Advantages of ET?
+1. There is no baseline to test the application.
+2. We may understand feature as a defect.
+3. We may understand defect as a feature.
+4. If dev fails to implement any feature, QA will never come to know about it.
+5. More rework both at Dev & QA side.
+6. Wastage of time in exploring the root cause of the defects.
+7. We may miss to find some defects.
+
+
+
+Q: How to perform ET?
+Ans:
+   To perform ET, we need to follow "Exploratory Testing life cycle".
+
+   
+Exploratory Testing Life Cycle:
+
+1. Identify the need for ET
+          |
+          V
+2. Explore OR understand the application to the fullest
+          |
+          V
+3. Write Test cases based on your understanding
+          |
+          V
+4. Test case Review process **
+   (a) Internal Review (Done by BA, Dev & Peer)
+   (b) External Review (Done by Customer)
+          |
+          V
+5. Fix all the review comments, baseline the testcases and store the test cases in test case repository
+          |
+          V
+6. Select & execute the testcases based on the relase note scope whenever build comes. During test case execution If you find any defects it should be logged against dev in a defect tracking tool.
+          |
+          V
+7. Prepare consolidate test execution report & attach all the test cases which QA has used to perform the testing.
+Note: Attaching test cases is very important here. Also mention that the application is tested using only these attached test cases.
+
+
+
+Q: How to make ET very effective?
+Ans:
+1. Explore the application to the fullest.
+2. Effective interaction with BA.
+3. Effective interaction with Dev.
+4. Effective interaction with Customer.
+5. Use your previous domain experience.
+6. Proper documentation both at Dev & QA level.
+7. Effective & timely review process at every steps.
+8. Use common sense
+
+
+Regression Testing (RT):
+
+  It is a process of re-executing the same test cases in every releases just to make sure the new modifications are not affecting the exhisting 
+  functionalities of an application is k.a., RT.
+
+
+Note: Regression testing is a bridge between manual & automation testing.
+
+
+Characterstics of Regression features:
+1. The feature which is completely implemented & Stable.
+2. The feature which is completely defect free.
+3. The feature which doesnot have any CR (Change Request) near by.
+4. The feature which has reached the PROD.
+
+
+Q: Do we Write test cases for RT?
+Ans: No. Instead we use existing test cases for the rergession.
+-----------------------------------
+
+
+Types of RT:
+1. Unit Regression
+2. Regional Regression OR Risk Based Testing
+3. Full Regression
+
+
+1. Unit Regression:
+    Some cases the new modifications are not going to affect the existing functionalities of an application. Which is termed as Unit Regression.
+   Ex: Spelling mistake. Alignments etc.
+
+QA Actions: 
+(a) Perform complete smoke testing
+(b) Test the new changes
+
+--------------------------------------------
+2. Regional Regression OR Risk Based Testing:
+    In some cases we can easily predict the affected areas which are due to the new modifications. Hence we take test cases of the impacted regression 
+    feature & perform regression Testing. which is termed as Regional Regression.
+   As most of the cases the impact areas are predicted/guessed. Hence going by our prediction and performing RT might be a risky approach. But due to the
+   time crunch situations we might go for it.
+
+QA Actions: 
+(a) Perform complete smoke testing
+(b) Test the new changes
+(c) Select and execute the impact area regression test cases.
+----------------------------------------------
+
+3. Full regression:
+    In some cases it is very difficult to predict the impact areas caused due to new modifications. Under such situations we go for Full Regression.
+
+QA Actions: 
+(a) Perform complete smoke testing
+(b) Test the new changes
+(c) Select and execute all the regression test cases.
+----------------------------------------------
+
+Note: We always perform Full Regression
+
+----------------------------------------------
+Q: How many Regression test cases you have OR count of regression suite?
+Ans: Around 1700+ regression test cases we have right now & counting..
+
+
+Q: How many Regression Test cases you have written?
+Ans: No. We don't write Regression Test cases. Instead we use existing test cases for the rergession.
+
+
+Q: What is the start point of automation?
+Ans: Regression test cases influence the start of the automation.
+
+
+Q: What is regression Suite?
+Ans: It is a group OR collection of regression test cases is k.a., regression suite
+
+
+Q: How do you manage to perform the regression testing in regular manner?
+Ans:
+In our organization we are automating (UI) all the UI regression test cases. We are one step behind the current sprint. During regression most of the regression test cases are tested using automation & whatever regression test cases which are not yet automated will be tested manually.
+
+
+
+Re-Testing: 
+   It is a process of validating the defect fix to make sure the fix (Defect fix) is working as expected is k.a., ReTesting.
+   
+It is also k.a., Confirmation Testing.
+
+Example:
+
+  QA has logged 3 defects in the last build. Dev has fixed all the 3 defects in the next build & given to QA for testing purpose.
+
+Now the new build has 3 things:
+1. Old feature OR regression features
+2. Newly implementation OR code change
+3. Defect fix.
+
+
+Validating the defect fix to check that the fix is working or not is k.a., Re-Testing.
+
+Sanity Testing:
+
+Sanity testing is the subset of regression testing and it is performed when we do not have enough time for doing regression testing.
+
+A subset of regression test cases are executed after receiving a build or code with small or minor changes in the functionality or code, to check whether it resolved the issues or software bugs and no other software bug is introduced by the new changes.
+
+Sanity testing is performed after the build has cleared the smoke tests and has been accepted by QA team for further testing. Sanity testing checks the major functionality with finer details.
+
+Sanity testing is performed when the development team needs to know quickly the state of the product after they have done changes in the code, or there is some controlled code changed in a feature to fix any critical issue, and stringent release time-frame does not allow complete regression testing.
+
+
+
+Q: Difference between Smoke & Sanity testing?
+	See the "Smoke & Sanity.xlsx"
+
+
+
+Note:
+1) Both sanity tests and smoke tests are ways to avoid wasting time and effort by quickly determining whether an application is too flawed to merit any rigorous testing. 
+
+2) Smoke testing performed on a particular build is also known as a build verification test.
+
+3) One of the best industry practice is to conduct a Daily build and smoke test in software projects.
+
+4) As per the needs of testing, you may have to execute both Sanity and Smoke Tests in the software build. In such cases, you will first execute Smoke tests and then go ahead with Sanity Testing.
+
+
+User Acceptance Testing (UAT):
+   It is an end-to-end testing in which testing is done by customer in customer environment (Stagging) is k.a., UAT.
+
+ - It is also k.a., UAT OR Acceptance Testing OR User Acceptance Testing
+
+  Usually customer will have 2 environments
+  (a) Staging OR pre-production OR Dummy
+  (b) Production OR PROD environment
+
+Once final testing is completed and the s/w is ready for the release, then we place all the deliverables into FTP machine & sendout a mail (Release mail) to the customer. 
+
+
+Q: What is Deliverables?
+Ans: Any artifacts which will be shared with the customer is k.a., Deliverables.
+
+
+Common Deliverables would be:
+1. Software (It consist of Source Code(.jar files), pages/jsp (.war file) & DB tables (.sql files))
+2. Release Note Doc
+3. Installation Guide Doc
+4. Consolidated Test Execution Report
+5. Consolidated Defect Report
+
+
+
+The Release Mail includes:
+(a) FTP server name/IP address
+(b) Credentials
+(c) Location in which deliverables are kept
+(d) List of deliverables kept in FTP machine.
+
+
+
+Whenever we make a release to the customer, the customer will install the s/w in staging environment by following the installation guide doc. Once the installation/deployment of s/w is done, they will perform one round of end-to-end testing in staging environment which is k.a., UAT.
+
+
+Q: What are the types of System Testings?
+Ans:
+1. System Testing: 
+   - It is an End-to-End testing
+   - It is done by QA in testing environment.
+   - Actual customer business scenarios are tested
+2. UAT: 
+   - It is an End-to-End testing
+   - Its done by customer in staging environment
+   - Actual customer business scenarios are tested
+
+
+During UAT testing in staging Environment, If UAT goes fine then the same s/w will be moved to PROD environment. But If customer finds any defects in UAT then they will reject the release & the defect will be escalated to the company.
+
+
+Q: What is defect Leakage?
+Ans: Finding the defects by the customer in customer environment which was missed out by the QA is k.a., Defect Leakage.
+
+
+Q: How to handle the customer escalations ?
+Ans: 
+I. Check whether the issue is part of the current release scope
+  Ans: If No, then you just update the issue with below comments:
+  "This issue will be addressed in the next upcoming release as it is not part of the current release"
+  But If the answer is Yes, then perform 2nd step.
+
+II. Try to replicate/reproduce the same issue in QA environment.
+  Ans: If No, then update the issue with below comments:
+  "The issue is not reproducible in QA environment. Hence closing the defect". Also provide screenshot OR server logs to proove the same.
+    But If the issue is reproducible in QA environment then we need to perform 3rd step.
+
+III. Check whether Test cases are written & selected for testing.
+
+   If No, then you will asked to write the testcases for the same feature. 
+   If Yes, Action will be taken against the QA.
+
+
+Different ways of doing UAT:
+1. Done by customer
+2. Done by customers customer (Inherent Acceptance Testing)
+3. Done by QA.
+
+
+1. Done by customer: It is the widely used scenario. When we make a release to the customer, the customer will deploy the s/w in staging environment & perform UAT.
+
+
+
+2. Done by customers customer: In some business scenario's the UAT will be done by customer's customer.
+EX: KSRTC has given requirement to wipro for developing online bus reservation s/w. Wipro has developed the s/w, tested it & now making a release to the KSRTC.
+   The KSRTC will not perform UAT instead they will give the s/w to the outlet dealers who are the customer of the KSRTC where they are also booking KSRTC buses.
+   Once the s/w is given to outlet, they will start using the s/w for booking the KSRTS buses. When they are using the s/w If they find any defects it will be reported back to KSRTC. 
+   KSRTC consolidate all the complaints form their customers & send it to wipro as a UAT defects. This is k.a., Inherent Acceptance Testing.
+
+
+
+3. Done by QA: It is not recommended. If situation demands QA has to do UAT by following User Acceptance Life Cycle:
+
+1. Identify the need for UAT
+	|
+	V
+2. Get customer approval 
+	|
+	V
+3. Write UAT test cases.
+	|
+	V
+4. UAT test case review
+    (a) Internal Review (Done by BA, Dev & Peer)
+    (b) External Review (Done by customer)
+	|
+	V
+5. QA should fix all the review comments, baseline the test cases and store the test cases in test case repository.
+	|
+	V
+6. Whenever Release comes, select the UAT test cases & execute them in Customer stagging environment.
+
+Ex: 
+(a) Through RDC (Remote Desktop Connection) access the customer staging environment & perform the testing.
+(b) If it is a web application OR Client server application then access the s/w which is deployed in staging environment through the URL.
+
+30/06/2023
+
+Compatibility Testing (CT):
+   Testing the s/w in different hardware OR software Flavours is k.a, CT.
+
+CT is devided into 2 groups:
+ (i) Hardware Compatibility
+    Ex: Input devices, output devices, Processor, RAM, VGA card etc
+	
+ (ii) Software Compatibility
+     (a) Browsers
+     (b) Opearting Systems
+     (c) Apps/Devices
+
+
+Q: How to decide the flavours?
+Ans: It is decided mainly with respect to the ROI (Return On Investment)
+
+
+
+Note:
+1. Initially the s/w is developed on 1 std flavour. Once the application is stable then we will migrate the s/w to remaining flavours.
+2. In CT the version is very important.
+3. Nowadays we use VMwares OR Dockers to perform the CT on the required flavours.
+4. It is mandatory that we need to perform CT on a fresh OS or Browsers.
+5. When we log the defects in CT it is highly mandatory to mention the exact version of the OS & Browsers are used.
+6. It is recommended that the same person has to perform the testing on all the flavours. So that they can find the behavioural difference of the s/w on different flavours. But in practical it is highly impossible.
+
+
+Types of defects in CT:
+(a) Functionality defects (FD): The issue which is persist in all the selected falvours is k.a., FD.
+
+(b) Compatibility defects (CD): The issue which is persist in few flavours but working fine in the remaining flavours is k.a., CD.
+
+
+Note:
+1. Performing testing of the same s/w on different browsers is k.a., Browser compatiblity OR Cross Browser Testing
+2. Performing testing of the same s/w on different O.S is k.a., O.S compatiblity OR Cross O.S Testing
+
+
+Project Class Questions:
+Q: What are the browsers you have used?
+Q: What are the OS you have used?
+Q: What are the behaviour difference of the s/w acorss different OS & Browsers (both manual & Automation)?
+Q: What are the challanges you have faced while performing CT (both manual & Automation)?
+Q: Who used to deploy the s/w?
+Q: Which tools you have used to automate CT?
+Q: Tell me 3-4 critical functionalities OR features in your application?
+Q: Time taken to perform CT both manual & Automation separately?
+
+
+
+
+
+Link Testing: It is the process of testing the functionality of the each and every links using TOOLS is link testing.
+
+there are applications which contains 'n' number of links. Testing them manually is a time cosuming job. Hence we use tools which perform link testing very fast & accurate.
+
+There are many tools available for performing link testing which includes:
+1. Xenu link sleuth
+2. Web Link Validator
+3. Link Scan
+4. Free Link Checker etc
+
+We are discussing here about the Xenu tool
+
+Q: How to download the xenu?
+Ans:
+ -> Go to google & search "Download Xenu"
+ -> Click on the first official link
+ -> click on the download icon
+ -> Some time it opens advertisement popup, there you need to click botton link "No thanks, continue to download Xenu's Link Sleuth"
+ -> Click on download icon again
+ -> Download the .zip file
+ -> Extract the zip file, double click on setup.exe and install the xenu.
+
+
+About Tools:
+This tool has following features:
+
+1. Filter: What are the websites you have to include to test the links OR what are the websites you dont want to include
+
+2. Threads: Number of links the tool has to test at a time
+
+3. Depth: How many navigatations OR steps required to complete the functionality is k.a., depth.
+
+4. Report types
+
+5. Authentications
+
+
+
+In link testing we find following type of defects:
+1. Broken Link: The requested page is not present OR has not opened.
+Ex:404 error OR 403 forbidden
+
+2. Orphon link: The link with downloadable content is missing
+
+When you run the tool, we may find some errors link "Forbidden error"
+This is not a defect. This indicates a user input is required to navigate to next page.
+
+
+
+Performance Testing (PT):
+   Testing the stability & Response Time of an application by applying Load is k.a., PT.
+
+   The performance testing will be done for web applications only.
+
+Stability: Ability to withstand for which it is designed for is k.a., stability.
+--------------------
+Response Time: A total time taken to receive the link or page is k.a., Response Time.
+
+RT = T1 + T2 + T3
+
+But T1 & T3 are influenced by many factors. Such as:
+1. Network speed
+2. Network Traffic
+3. Service Provider
+4. Hardware capacity of the computer.
+  
+Hence we need to standardize the T1 & T3 before performing PT. While publishing the PT results also we should say under the specific speed of internet & specific Hardware capacity the application response time is 2 sec.
+---------------------
+
+Load: Number of users working on the Software.
+--------------
+
+
+Types of PT: 
+1. Load Testing
+2. Stress OR Torture Testing
+3. Volume Testing
+4. Soak Testing
+
+1. Load Testing: Testing the stability and Response Time of an application by applying load which is equal OR less than the designed number of users is k.a., Load Testing.
+-------------------------------------
+
+2. Stress OR Tortute Testing: Testing the stability & Response Time of an application by applying the load which is more than the designed number of users is k.a., Stress/Torture Testing.
+    This type of testing is usually done to find the scalability limit for the s/w.
+
+It can be done in 2 ways:
+1) Restrict the load & reduce the hardware capacity
+2) Restrict the hardware & increase the load.
+
+Note: The stress testing must be followed by Load testing.
+---------------------------------
+
+3. Volume Testing: Testing the stability & response time of an application by transforming huge volume of data through it is k.a., Volume Testing.
+-------------------------------
+4. Soak Testing: Testing the stability & Response Time of an application by applying the designed number of load contineously over a period of time is k.a, Soak Testing.
+   It is required to simulate the real time scenario where the contineous load will be present on the servers.
+  To do that we contoneously apply the load to the server over a period of time
+  Ex: 72, 92 OR 120 hours.
+-------------------------------
+
+Note:
+1. Not all the application requires PT. We do PT on those s/w which provides ROI (Return On Investment)
+2. Not all the pages requires PT. We do PT on those pages which are frequently accessed by the end users.
+
+3. Based on Architecture the web applications are devided into 2 types
+  (a) Client Server Architecture
+  (b) Web Application
+Both requires PT if there is a ROI.
+
+4. Based on the client resource consumption the applications are divided into 2 types
+  (a) Thin client: The application which uses less client resource & whole process takes place at server side.
+  Ex: Gmail, FB etc
+
+  (b) Thick client: The application which utilizes more client resources and as well as server resources.
+  Ex: Yahoo messanger, Skype
+
+Both requires PT if there is a ROI.
+------------------
+
+Tools used for PT are:
+Load Runnner: Vendor is hp.
+Jmeter
+SoapUI
+ReadyAPI
+
+
+

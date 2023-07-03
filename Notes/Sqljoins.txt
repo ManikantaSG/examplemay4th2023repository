@@ -1,0 +1,560 @@
+13/06/2023
+Joins
+Peform Inner Join On emp and dept table by applying where class table.
+Case1:
+Write query to display employee name and their corresponding department name 
+in which they are working?
+
+SQL> select e.ename,d.dname from emp e, dept d
+  2  where e.deptno=d.deptno;
+
+ENAME      DNAME
+---------- --------------
+CLARK      ACCOUNTING
+KING       ACCOUNTING
+MILLER     ACCOUNTING
+JONES      RESEARCH
+FORD       RESEARCH
+ADAMS      RESEARCH
+SMITH      RESEARCH
+SCOTT      RESEARCH
+WARD       SALES
+TURNER     SALES
+ALLEN      SALES
+JAMES      SALES
+BLAKE      SALES
+MARTIN     SALES
+
+14 rows selected.
+
+ Case2:
+Peform Inner join on emp and dept tables by applying On clause
+
+SQL> select e.ename,d.dname from emp e INNER JOIN dept d on e.deptno=d.deptno;
+
+ENAME      DNAME
+---------- --------------
+CLARK      ACCOUNTING
+KING       ACCOUNTING
+MILLER     ACCOUNTING
+JONES      RESEARCH
+FORD       RESEARCH
+ADAMS      RESEARCH
+SMITH      RESEARCH
+SCOTT      RESEARCH
+WARD       SALES
+TURNER     SALES
+ALLEN      SALES
+JAMES      SALES
+BLAKE      SALES
+MARTIN     SALES
+
+14 rows selected.
+
+LEFT JOIN OR LEFT OUTER JOIN:
+The Left Join returns all the records from the left table and Only Matching
+records from the right Table.
+
+Case1;
+Peform Left Join On emp and dept table by applying where Clause.
+
+SQL> select a.ID,a.PERSONNAME,b.ID,b.CITY from Person a,city b where a.ID=b.ID(+);
+
+        ID PERSONNAME         ID CITY
+---------- ---------- ---------- ----------
+        10 santosh            10 Bangalore
+        20 Shilpa             20 Kolar
+        30 Krishna            30 Mysore
+        40 vinith             40 Bidar
+        40 vinith             40 Tumkur
+        50 sahana
+        60 Anusha
+
+7 rows selected.
+
+SQL> select a.ID,a.PERSONNAME,b.ID,b.CITY from Person a Left Join city b ON  a.ID=b.ID(+);
+
+        ID PERSONNAME         ID CITY
+---------- ---------- ---------- ----------
+        10 santosh            10 Bangalore
+        20 Shilpa             20 Kolar
+        30 Krishna            30 Mysore
+        40 vinith             40 Bidar
+        40 vinith             40 Tumkur
+        50 sahana
+        60 Anusha
+
+7 rows selected.
+
+
+Write query to display all available employee Names and their respective 
+department Names?
+
+SQL> select e.ename,d.dname from emp e,dept d
+  2  where e.deptno=d.deptno(+);
+
+ENAME      DNAME
+---------- --------------
+MILLER     ACCOUNTING
+KING       ACCOUNTING
+CLARK      ACCOUNTING
+FORD       RESEARCH
+ADAMS      RESEARCH
+SCOTT      RESEARCH
+JONES      RESEARCH
+SMITH      RESEARCH
+JAMES      SALES
+TURNER     SALES
+BLAKE      SALES
+MARTIN     SALES
+WARD       SALES
+ALLEN      SALES
+
+14 rows selected.
+
+Case2:Perform Left Join On emp and dept tables by applying On clause.
+
+SQL> select e.ename,d.dname from emp e Left Join dept d ON e.deptno=d.deptno;
+
+ENAME      DNAME
+---------- --------------
+MILLER     ACCOUNTING
+KING       ACCOUNTING
+CLARK      ACCOUNTING
+FORD       RESEARCH
+ADAMS      RESEARCH
+SCOTT      RESEARCH
+JONES      RESEARCH
+SMITH      RESEARCH
+JAMES      SALES
+TURNER     SALES
+BLAKE      SALES
+MARTIN     SALES
+WARD       SALES
+ALLEN      SALES
+
+14 rows selected.
+
+
+RIGHT JOIN
+Right Join returns all records from the right table and only matching record 
+from the left table.
+
+
+SQL> select a.ID,a.PERSONNAME,b.ID,b.CITY from Person a,city b where a.ID(+)=b.ID;
+
+        ID PERSONNAME         ID CITY
+---------- ---------- ---------- ----------
+        10 santosh            10 Bangalore
+        20 Shilpa             20 Kolar
+        30 Krishna            30 Mysore
+        40 vinith             40 Tumkur
+        40 vinith             40 Bidar
+                              90 Hubli
+                              80 Raichur
+
+7 rows selected.
+
+ON CLAUSE:
+SQL> select a.ID,a.PERSONNAME,b.ID,b.CITY from Person a Right Join city b On a.ID(+)=b.ID;
+
+        ID PERSONNAME         ID CITY
+---------- ---------- ---------- ----------
+        10 santosh            10 Bangalore
+        20 Shilpa             20 Kolar
+        30 Krishna            30 Mysore
+        40 vinith             40 Tumkur
+        40 vinith             40 Bidar
+                              90 Hubli
+                              80 Raichur
+
+7 rows selected.
+
+Case1:Perform Right Join On emp and dept tables by applying where clause.
+
+Write Query to display employee name and their respective department name 
+in which they are working along with all available department Names.
+
+SQL> select e.ename,d.dname from emp e,dept d
+  2  where e.deptno(+)=d.deptno;
+
+ENAME      DNAME
+---------- --------------
+CLARK      ACCOUNTING
+KING       ACCOUNTING
+MILLER     ACCOUNTING
+JONES      RESEARCH
+FORD       RESEARCH
+ADAMS      RESEARCH
+SMITH      RESEARCH
+SCOTT      RESEARCH
+WARD       SALES
+TURNER     SALES
+ALLEN      SALES
+JAMES      SALES
+BLAKE      SALES
+MARTIN     SALES
+           OPERATIONS
+
+15 rows selected.
+
+Perform Right Join on Emp dept tables by applying on clause.
+  3
+SQL> select e.ename,d.dname from emp e Right Join dept d
+  2  ON e.deptno(+)=d.deptno;//In ON clause we cant use the + is also acceptable.
+
+ENAME      DNAME
+---------- --------------
+CLARK      ACCOUNTING
+KING       ACCOUNTING
+MILLER     ACCOUNTING
+JONES      RESEARCH
+FORD       RESEARCH
+ADAMS      RESEARCH
+SMITH      RESEARCH
+SCOTT      RESEARCH
+WARD       SALES
+TURNER     SALES
+ALLEN      SALES
+JAMES      SALES
+BLAKE      SALES
+MARTIN     SALES
+           OPERATIONS
+
+15 rows selected.
+
+
+FULL JOIN:
+The Full Join returns matching as well as non matching records from both tables.
+The full Join can be described as It is a Unoin Of Left Join and Right Join.
+
+
+SQL> select a.ID,a.PERSONNAME,b.ID,b.CITY from Person a FULL JOIN city b ON a.ID=b.ID;
+
+        ID PERSONNAME         ID CITY
+---------- ---------- ---------- ----------
+        10 santosh            10 Bangalore
+        20 Shilpa             20 Kolar
+        30 Krishna            30 Mysore
+        40 vinith             40 Bidar
+                              80 Raichur
+                              90 Hubli
+        40 vinith             40 Tumkur
+        50 sahana
+        60 Anusha
+
+9 rows selected.
+
+CASE1:
+Perform Full Join On emp and dept tables by applying where clause.
+
+SQL> select e.empno,e.ename,e.job,d.deptno,d.dname,d.loc from emp e,dept d
+  2  Where e.deptno=d.deptno(+)
+  3  UNION
+  4  select e.empno,e.ename,e.job,d.deptno,d.dname,d.loc from emp e,dept d
+  5  Where e.deptno(+)=d.deptno;
+
+     EMPNO ENAME      JOB           DEPTNO DNAME          LOC
+---------- ---------- --------- ---------- -------------- -------------
+      7369 SMITH      CLERK             20 RESEARCH       DALLAS
+      7499 ALLEN      SALESMAN          30 SALES          CHICAGO
+      7521 WARD       SALESMAN          30 SALES          CHICAGO
+      7566 JONES      MANAGER           20 RESEARCH       DALLAS
+      7654 MARTIN     SALESMAN          30 SALES          CHICAGO
+      7698 BLAKE      MANAGER           30 SALES          CHICAGO
+      7782 CLARK      MANAGER           10 ACCOUNTING     NEW YORK
+      7788 SCOTT      ANALYST           20 RESEARCH       DALLAS
+      7839 KING       PRESIDENT         10 ACCOUNTING     NEW YORK
+      7844 TURNER     SALESMAN          30 SALES          CHICAGO
+      7876 ADAMS      CLERK             20 RESEARCH       DALLAS
+      7900 JAMES      CLERK             30 SALES          CHICAGO
+      7902 FORD       ANALYST           20 RESEARCH       DALLAS
+      7934 MILLER     CLERK             10 ACCOUNTING     NEW YORK
+                                        40 OPERATIONS     BOSTON
+
+15 rows selected.
+
+
+Peform FULL Join On emp and dept Tables by applying ON Clause.
+
+SQL> select e.empno,e.ename,e.job,d.deptno,d.dname,d.loc from emp e Full Join dept d
+  2  On e.deptno=d.deptno;
+
+     EMPNO ENAME      JOB           DEPTNO DNAME          LOC
+---------- ---------- --------- ---------- -------------- -------------
+      7369 SMITH      CLERK             20 RESEARCH       DALLAS
+      7499 ALLEN      SALESMAN          30 SALES          CHICAGO
+      7521 WARD       SALESMAN          30 SALES          CHICAGO
+      7566 JONES      MANAGER           20 RESEARCH       DALLAS
+      7654 MARTIN     SALESMAN          30 SALES          CHICAGO
+      7698 BLAKE      MANAGER           30 SALES          CHICAGO
+      7782 CLARK      MANAGER           10 ACCOUNTING     NEW YORK
+      7788 SCOTT      ANALYST           20 RESEARCH       DALLAS
+      7839 KING       PRESIDENT         10 ACCOUNTING     NEW YORK
+      7844 TURNER     SALESMAN          30 SALES          CHICAGO
+      7876 ADAMS      CLERK             20 RESEARCH       DALLAS
+      7900 JAMES      CLERK             30 SALES          CHICAGO
+      7902 FORD       ANALYST           20 RESEARCH       DALLAS
+      7934 MILLER     CLERK             10 ACCOUNTING     NEW YORK
+                                        40 OPERATIONS     BOSTON
+
+15 rows selected.
+
+SELF JOIN
+
+Joining the same Table by applying Inner Join or left join Or Right join is 
+called as self Join.
+
+SQL> select e.ename "Employee",m.ename "Manager" from emp e,emp m
+  2  where m.empno=e.mgr;
+
+Employee   Manager
+---------- ----------
+FORD       JONES
+SCOTT      JONES
+JAMES      BLAKE
+TURNER     BLAKE
+MARTIN     BLAKE
+WARD       BLAKE
+ALLEN      BLAKE
+MILLER     CLARK
+ADAMS      SCOTT
+CLARK      KING
+BLAKE      KING
+JONES      KING
+SMITH      FORD
+
+13 rows selected.
+
+OR
+
+SQL> select e.ename "Employee",m.ename "Manager" from emp e,emp m
+  2  where e.mgr=m.empno;
+
+Employee   Manager
+---------- ----------
+FORD       JONES
+SCOTT      JONES
+JAMES      BLAKE
+TURNER     BLAKE
+MARTIN     BLAKE
+WARD       BLAKE
+ALLEN      BLAKE
+MILLER     CLARK
+ADAMS      SCOTT
+CLARK      KING
+BLAKE      KING
+JONES      KING
+SMITH      FORD
+KING
+
+14 rows selected.
+
+keyword for getting sql to notepad is ed space and enter
+
+NATURAL JOIN:
+Natural Join returns matching records from both the tables it works as similar
+to Inner Join.
+
+1)Natural Join never accept Matching condition
+2)Common column name b/w 2 tables with alias name we should not specify the select statement.
+
+WRITE A QUERY TO DISPLAY AND THEIR RESPECTIVE DEPARTMENT NAMES IN WHICH THEY
+ARE WORKING.
+
+
+SQL> select e.ename,d.dname from emp e NATURAL JOIN dept d;
+
+ENAME      DNAME
+---------- --------------
+CLARK      ACCOUNTING
+KING       ACCOUNTING
+MILLER     ACCOUNTING
+JONES      RESEARCH
+FORD       RESEARCH
+ADAMS      RESEARCH
+SMITH      RESEARCH
+SCOTT      RESEARCH
+WARD       SALES
+TURNER     SALES
+ALLEN      SALES
+JAMES      SALES
+BLAKE      SALES
+MARTIN     SALES
+
+14 rows selected.
+
+IMPLICIT JOIN:
+while joining two or more tables if we are using "Where Clause" for matching 
+condition that indicates Implicit Join.
+
+SQL> select e.ename,d.dname from emp e,dept d  where e.deptno=d.deptno;
+
+ENAME      DNAME
+---------- --------------
+CLARK      ACCOUNTING
+KING       ACCOUNTING
+MILLER     ACCOUNTING
+JONES      RESEARCH
+FORD       RESEARCH
+ADAMS      RESEARCH
+SMITH      RESEARCH
+SCOTT      RESEARCH
+WARD       SALES
+TURNER     SALES
+ALLEN      SALES
+JAMES      SALES
+BLAKE      SALES
+MARTIN     SALES
+
+14 rows selected.
+
+Example
+
+Explicit Join
+While Joining two or more tables if we are using in built keywords such as
+Inner Join Or Left Join Or Right Join along with "ON clause" that indicates
+Explicit Join.
+
+SQL> select e.ename,d.dname from emp e INNER JOIN dept d
+  2  ON e.deptno=d.deptno;
+
+ENAME      DNAME
+---------- --------------
+CLARK      ACCOUNTING
+KING       ACCOUNTING
+MILLER     ACCOUNTING
+JONES      RESEARCH
+FORD       RESEARCH
+ADAMS      RESEARCH
+SMITH      RESEARCH
+SCOTT      RESEARCH
+WARD       SALES
+TURNER     SALES
+ALLEN      SALES
+JAMES      SALES
+BLAKE      SALES
+MARTIN     SALES
+
+14 rows selected.
+
+ANSII JOIN
+While Joining two or more tables if we are using inbuilt keywords such as 
+Inner Join Or Left Join Or Right Join etc along with "ON clause" OR USING
+CLAUSE that indicates ANSII JOIN.
+
+
+SQL> select e.ename,d.dname from emp e INNER JOIN dept d
+  2  ON e.deptno=d.deptno;
+
+ENAME      DNAME
+---------- --------------
+CLARK      ACCOUNTING
+KING       ACCOUNTING
+MILLER     ACCOUNTING
+JONES      RESEARCH
+FORD       RESEARCH
+ADAMS      RESEARCH
+SMITH      RESEARCH
+SCOTT      RESEARCH
+WARD       SALES
+TURNER     SALES
+ALLEN      SALES
+JAMES      SALES
+BLAKE      SALES
+MARTIN     SALES
+
+14 rows selected.
+
+
+PERFORM JOIN OPERATION BY USING CLAUSE.
+While joining two or more tables if we are using in built keywords such as Inner join
+OR Left Join OR Right Join etc along with USING CLAUSE that indicates Using clause concept.
+
+RULES: 
+1)Common column names b/w the tables without alias name we should provide in Using Clause.
+2)Common column name b/w 2 tables with alias name we should not specify the select statement.
+
+SQL> select e.ename,d.dname from emp e INNER JOIN dept d
+  2  USING(deptno);
+
+ENAME      DNAME
+---------- --------------
+CLARK      ACCOUNTING
+KING       ACCOUNTING
+MILLER     ACCOUNTING
+JONES      RESEARCH
+FORD       RESEARCH
+ADAMS      RESEARCH
+SMITH      RESEARCH
+SCOTT      RESEARCH
+WARD       SALES
+TURNER     SALES
+ALLEN      SALES
+JAMES      SALES
+BLAKE      SALES
+MARTIN     SALES
+
+14 rows selected.
+
+16/06/2023
+How to perform join on more than 2 tables.
+
+
+SQL> create table Insurance(DEPTNO number(2),INSURANCE_TYPE varchar2(10),
+  2  INSURANCE_NAME varchar2(15), STARTAT Date,EndAt Date);
+
+Table created.
+
+SQL> alter table Insurance Modify Insurance_Type Varchar2(20);
+
+Table altered.
+
+SQL> select * from insurance;
+
+    DEPTNO INSURANCE_TYPE       INSURANCE_NAME  STARTAT   ENDAT
+---------- -------------------- --------------- --------- ---------
+        10 Vehicle insurance    hdfc life       22-MAY-23 27-MAY-23
+        20 Health insurance     Star Health     22-MAY-23 27-MAY-23
+        30 Health insurance     Digit vehicle   22-MAY-23 27-MAY-23
+        40 Health insurance     Digit vehicle   22-MAY-23 27-MAY-23
+4 rows updated.
+
+Case2:Peform Inner Join On emp,dept on insurance tables by applying where class
+ 
+Write query to display Employeename and their corresponding deptname in which they 
+are working insurance type and insurance name in which currently they are holding?
+
+
+SQL> select e.ename,d.dname,ins.insurance_type,insurance_name from
+  2  emp e,dept d,Insurance ins
+  3  where e.deptno=d.deptno
+  4  and d.deptno=ins.deptno;
+
+
+Case2:Peform  Inner Join On emp,dept on insurance tables by applying On clause.
+
+
+SQL> select e.ename,d.dname,ins.insurance_type,insurance_name from
+  2  emp e INNER JOIN dept d
+  3  ON e.deptno=d.deptno
+  4  INNER JOIN Insurance ins
+  5  ON d.deptno=ins.deptno;
+
+Case3:Peform  Inner Join On emp,dept on insurance tables by applying USING clause.
+  
+SQL> select e.ename,d.dname,ins.insurance_type,insurance_name from
+  2  emp e INNER JOIN dept d
+  3  USING(deptno)
+  4  INNER JOIN Insurance ins
+  5  USING(deptno);
+
+CASE4:Apply More Than one join operation on emp,dept and insuarance table.
+ Write query to display all employeena,e corresponding departmentname in which
+they are working along with all available insuarance type and its name.
+
+SQL> select e.ename,d.dname,ins.insurance_type,insurance_name from
+  2  emp e INNER JOIN dept d
+  3  ON e.deptno=d.deptno
+  4  RIGHT JOIN Insurance ins
+  5  ON d.deptno=ins.deptno;
